@@ -1,0 +1,66 @@
+body {
+  padding-top: 50px;
+  font-family: 'San Francisco', -apple-system, system-ui, sans-serif;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: midnightblue;
+  display: flex;
+  justify-content: space-between;
+}
+nav a,
+nav button {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: white;
+  padding: 1em;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav button:hover {
+  background: mediumblue;
+}
+nav form {
+  padding: 0;
+  margin: 0;
+}
+
+label {
+  display: block;
+  margin: 1em 0;
+}
+label span {
+  display: block;
+}
+input,
+textarea {
+  display: block;
+  margin: 0.5em 0;
+
+  font: inherit;
+  background: white;
+  border: 1px solid lightslategray;
+  border-radius: 4px;
+  padding: 10px 16px;
+}
+textarea {
+  margin-bottom: 1em;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  background: white;
+  border: 1px solid lightslategray;
+  border-radius: 4px;
+  padding: 10px 16px;
+}
+button:hover,
+button:focus {
+  background: slategray;
+  color: white;
+}

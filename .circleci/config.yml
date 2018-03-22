@@ -1,0 +1,112 @@
+version: 2
+
+refs:
+  container: &container
+    docker:
+      - image: node:10
+    working_directory: ~/repo
+  steps:
+    - &Install
+      run:
+        name: Install Dependencies
+        command: cd demo-project && yarn install --pure-lockfile
+    - &Build
+      run:
+        name: Build
+        command: cd demo-project && yarn build
+    - &Test
+      run:
+        name: Test
+        command: echo "add some jest tests"
+
+jobs:
+  all:
+    <<: *container
+    steps:
+      - checkout
+      - *Install
+      - *Build
+      - *Test
+
+  deploy-staging:
+    <<: *container
+    steps:
+      - checkout
+      - *Install
+      - *Build
+      - *Test
+      - run:
+          name: Deploy Staging
+          command: npx heroku-release publish --app APP-NAME-staging --dir demo-project
+      - run:
+          name: Notify about pending workflow
+          command: echo "post to slack"
+      - run:
+          name: Notify about failed build
+          command: echo "post to slack"
+          when: on_fail
+
+  deploy-prod:
+    <<: *container
+    steps:
+      - checkout
+      - *Install
+      - *Build
+      - *Test
+      - run:
+          name: Deploy Production
+          command: npx heroku-release promote --pipeline APP-NAME --source APP-NAME-staging --target APP-NAME-production
+      - run:
+          name: Notify about failed build
+          command: echo "post to slack"
+          when: on_fail
+
+  nightly:
+    <<: *container
+    steps:
+      - checkout
+      - *Install
+      - *Build
+      - *Test
+      - run:
+          name: Notify about failed build
+          command: echo "post to slack"
+          when: on_fail
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - all:
+          filters:
+            branches:
+              ignore:
+                - master
+  master:
+    jobs:
+      - deploy-staging:
+          filters:
+            branches:
+              only: master
+      - approve-prod:
+          type: approval
+          requires:
+            - deploy-staging
+          filters:
+            branches:
+              only: master
+      - deploy-prod:
+          requires:
+            - approve-prod
+          filters:
+            branches:
+              only: master
+  nightly:
+    triggers:
+      - schedule:
+          cron: '0 1 * * *'
+          filters:
+            branches:
+              only: master
+    jobs:
+      - nightly

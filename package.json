@@ -1,0 +1,21 @@
+{
+  "name": "securing-node-example",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.10.1"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "postinstall": "cd ./demo-project && yarn && cd ../attacker && yarn"
+  },
+  "lint-staged": {
+    "*.tsx": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
