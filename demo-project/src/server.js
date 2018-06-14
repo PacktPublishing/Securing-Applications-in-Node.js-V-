@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import {urlencoded, json} from 'body-parser';
 import cookieSession from 'cookie-session';
+import csurf from 'csurf';
 import Routes from './routes';
 
 const app = express();
@@ -18,6 +19,8 @@ app.use(
 
 app.use(urlencoded({extended: false}));
 app.use(json());
+
+app.use(csurf());
 
 app.use(Routes);
 

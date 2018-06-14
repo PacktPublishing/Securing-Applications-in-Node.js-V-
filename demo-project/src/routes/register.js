@@ -6,7 +6,12 @@ const app = Router();
 
 app.get('/register', async (req, res, next) => {
   try {
-    res.send(views.register({username: req.session.username}));
+    res.send(
+      views.register({
+        username: req.session.username,
+        csrfToken: req.csrfToken(),
+      }),
+    );
   } catch (ex) {
     next(ex);
   }

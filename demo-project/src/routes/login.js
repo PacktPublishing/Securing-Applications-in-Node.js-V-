@@ -6,7 +6,9 @@ const app = Router();
 
 app.get('/login', async (req, res, next) => {
   try {
-    res.send(views.login({username: req.session.username}));
+    res.send(
+      views.login({username: req.session.username, csrfToken: req.csrfToken()}),
+    );
   } catch (ex) {
     next(ex);
   }

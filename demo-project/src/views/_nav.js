@@ -1,4 +1,4 @@
-export default function nav({username}) {
+export default function nav({username, csrfToken}) {
   return `
     <link rel="stylesheet" href="style.css" />
     <nav>
@@ -7,6 +7,7 @@ export default function nav({username}) {
       username
         ? `
             <form action="/logout" method="post">
+              <input type="hidden" name="_csrf" value="${csrfToken}" />
               <button type="submit">Logout</button>
             </form>
           `

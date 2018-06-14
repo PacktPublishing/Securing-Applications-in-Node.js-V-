@@ -11,7 +11,13 @@ const app = Router();
 app.get('/', async (req, res, next) => {
   try {
     const posts = await database.posts.list();
-    res.send(views.home({username: req.session.username, posts}));
+    res.send(
+      views.home({
+        username: req.session.username,
+        posts,
+        csrfToken: req.csrfToken(),
+      }),
+    );
   } catch (ex) {
     next(ex);
   }

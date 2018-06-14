@@ -1,8 +1,8 @@
 import nav from './_nav';
 
-export default function home({username, posts}) {
+export default function home({username, posts, csrfToken}) {
   return `
-    ${nav({username})}
+    ${nav({username, csrfToken})}
     <ul>
       ${posts
         .map(
@@ -20,6 +20,7 @@ export default function home({username, posts}) {
       username
         ? `
             <form action="/add-post" method="post">
+              <input type="hidden" name="_csrf" value="${csrfToken}" />
               <textarea name="body"></textarea>
               <button type="submit">Add Post</button>
             </form>
