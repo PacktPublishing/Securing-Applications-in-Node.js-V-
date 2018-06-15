@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@authentication/csrf-protection@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@authentication/csrf-protection/-/csrf-protection-0.0.2.tgz#17e18357bd51f4545dbf5fe5c3a8228183593f20"
+  integrity sha512-zTG2t/JIAgUCt/vBHCq8GtGZ78c1DiTwlZk6ecD8IMlI6M09skeRYCaqLHneYKsiWIiPTiDdVru8jdmy8/4NNw==
+  dependencies:
+    "@types/node" "^8.0.33"
+
 "@babel/cli@^7.1.5":
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.1.5.tgz#4ccf0a8cdabeefdd8ce955384530f050935bc4d7"
@@ -633,6 +640,11 @@
     esutils "^2.0.2"
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
+
+"@types/node@^8.0.33":
+  version "8.10.20"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.20.tgz#fe674ea52e13950ab10954433a7824438aabbcac"
+  integrity sha512-M7x8+5D1k/CuA6jhiwuSCmE8sbUWJF0wYsjcig9WrXvwUI5ArEoUBdOXpV4JcEMrLp02/QbDjw+kI+vQeKyQgg==
 
 "@webassemblyjs/ast@1.7.8":
   version "1.7.8"

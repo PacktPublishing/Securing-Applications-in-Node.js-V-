@@ -3,9 +3,12 @@ import express from 'express';
 import {urlencoded, json} from 'body-parser';
 import cookieSession from 'cookie-session';
 import csurf from 'csurf';
+import csrfProtection from '@authentication/csrf-protection';
 import Routes from './routes';
 
 const app = express();
+
+app.use(csrfProtection());
 
 app.use(express.static(__dirname + '/public'));
 
