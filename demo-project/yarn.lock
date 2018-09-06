@@ -2,12 +2,39 @@
 # yarn lockfile v1
 
 
+"@authentication/cookie-session@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@authentication/cookie-session/-/cookie-session-0.0.2.tgz#014ccc42b99e7a6aecb439a77946ef628522a14f"
+  integrity sha512-KOr6jBfx0m0QKOK1Cow64up9OXFKjnY3IKVwksfxi4Z/PQxXzdyknLfL8aqmG0eVMzI7VLKaxJ+f2hZi/UNTfA==
+  dependencies:
+    "@authentication/cookie" "^0.1.1"
+
+"@authentication/cookie@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@authentication/cookie/-/cookie-0.1.1.tgz#8b51d470bc4d47f3f662020ddda0f1393951c293"
+  integrity sha512-YA0xBn1gWguEQlO5biLfzKhSlxqtTKd/vKKCdeqFIdVH31E+G/YTlfVL0bxRqEvGdgSnLEcQek3CX+qGXI/+bA==
+  dependencies:
+    "@authentication/keygrip" "^0.0.2"
+    "@authentication/raw-cookie" "^0.0.2"
+    "@types/ms" "^0.7.30"
+    ms "^2.1.1"
+
 "@authentication/csrf-protection@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@authentication/csrf-protection/-/csrf-protection-0.0.2.tgz#17e18357bd51f4545dbf5fe5c3a8228183593f20"
   integrity sha512-zTG2t/JIAgUCt/vBHCq8GtGZ78c1DiTwlZk6ecD8IMlI6M09skeRYCaqLHneYKsiWIiPTiDdVru8jdmy8/4NNw==
   dependencies:
     "@types/node" "^8.0.33"
+
+"@authentication/keygrip@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@authentication/keygrip/-/keygrip-0.0.2.tgz#25e2bba5374175a1b0237ab18dce6106727cc632"
+  integrity sha512-OKqn2+impPkX1GVxKbODgYjo671d+JvqLLyUpeLuBzDenmEx5lEY9CdqQmBeJpcjqd67tGc9Tgfvue4V9OgwFg==
+
+"@authentication/raw-cookie@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@authentication/raw-cookie/-/raw-cookie-0.0.2.tgz#e521fd6672a5e89073fe631b64cbb625bd9c14b9"
+  integrity sha512-G6KUY9Y9GHMD8P9uOgzVrdt9UOsIKvIJQFcUFkUL6VliNSrWQwzkeKD3/hMoVzhKIL6fEcCdnTmPm8ng8uFI3g==
 
 "@babel/cli@^7.1.5":
   version "7.1.5"
@@ -640,6 +667,11 @@
     esutils "^2.0.2"
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
+
+"@types/ms@^0.7.30":
+  version "0.7.30"
+  resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.30.tgz#f6c38b7ecbbf698b0bbd138315a0f0f18954f85f"
+  integrity sha512-OftRLCgAzJP7vmKn9by/GVjnf4hloz/pXNOwPo0vKGAfXI7GqWXJi9N2kRar4cP5s1dGwuwcagWqO6iHBTq1Mg==
 
 "@types/node@^8.0.33":
   version "8.10.20"
@@ -1530,7 +1562,7 @@ convert-source-map@^1.1.0:
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.5.1.tgz#b8278097b9bc229365de5c62cf5fcaed8b5599e5"
   integrity sha1-uCeAl7m8IpNl3lxiz1/K7YtVmeU=
 
-cookie-session@^2.0.0-beta.3:
+cookie-session@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/cookie-session/-/cookie-session-2.0.0-beta.3.tgz#4e446bd9f85bd7e27d3e226f4e99af12011a4386"
   integrity sha512-zyqm5tA0z9yMEB/xyP7lnRnqp8eLR2e0dap+9+rBwVigla9yPKn8XTL1jJymog8xjfrowqW2o5LUjixQChkqrw==
