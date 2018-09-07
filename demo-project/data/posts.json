@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": 1,
+    "authorUsername": "ForbesLindesay",
+    "body": "Hello, my name is <strong>Forbes</strong>"
+  },
+  {
+    "id": 2,
+    "authorUsername": "ForbesLindesay",
+    "body": "<script>alert('hello world')</script>"
+  }
+]
