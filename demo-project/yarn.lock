@@ -668,6 +668,13 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@moped/sql@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@moped/sql/-/sql-0.0.7.tgz#8698fee596ada09eb7aef8ce6689fd1202376ece"
+  dependencies:
+    "@types/node" "^8.0.33"
+    pg-minify "^0.5.3"
+
 "@types/ms@^0.7.30":
   version "0.7.30"
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.30.tgz#f6c38b7ecbbf698b0bbd138315a0f0f18954f85f"
@@ -4010,6 +4017,10 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+
+pg-minify@^0.5.3:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/pg-minify/-/pg-minify-0.5.4.tgz#89d5261cacfd44dd7927fa052222a404e9b2a3c9"
 
 pify@^2.0.0:
   version "2.3.0"
