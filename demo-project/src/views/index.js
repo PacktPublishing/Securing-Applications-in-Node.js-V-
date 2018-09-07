@@ -1,5 +1,5 @@
-import home from './home';
-import login from './login';
-import register from './register';
+import Home from './home';
+import Login from './login';
+import Register from './register';
 
-export {home, login, register};
+export {Home, Login, Register};

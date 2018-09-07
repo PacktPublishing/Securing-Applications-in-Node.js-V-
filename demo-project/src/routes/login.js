@@ -1,13 +1,20 @@
 import {Router} from 'express';
+import React from 'react';
+import {renderToString} from 'react-dom/server';
 import * as database from '../database';
-import * as views from '../views';
+import * as Views from '../views';
 
 const app = Router();
 
 app.get('/login', async (req, res, next) => {
   try {
     res.send(
-      views.login({username: req.session.username, csrfToken: req.csrfToken()}),
+      renderToString(
+        <Views.Login
+          username={req.session.username}
+          csrfToken={req.csrfToken()}
+        />,
+      ),
     );
   } catch (ex) {
     next(ex);

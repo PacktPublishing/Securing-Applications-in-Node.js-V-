@@ -1,31 +1,25 @@
-import nav from './_nav';
+import React from 'react';
+import Nav from './_nav';
 
-export default function home({username, posts, csrfToken}) {
-  return `
-    ${nav({username, csrfToken})}
-    <ul>
-      ${posts
-        .map(
-          post =>
-            `
-              <li>
-                <strong>${post.authorUsername}</strong>
-                <div>${post.body}</div>
-              </li>
-            `,
-        )
-        .join('\n')}
-    </ul>
-    ${
-      username
-        ? `
-            <form action="/add-post" method="post">
-              <input type="hidden" name="_csrf" value="${csrfToken}" />
-              <textarea name="body"></textarea>
-              <button type="submit">Add Post</button>
-            </form>
-          `
-        : ``
-    }
-  `;
+export default function Home({username, posts, csrfToken}) {
+  return (
+    <React.Fragment>
+      <Nav username={username} csrfToken={csrfToken} />
+      <ul>
+        {posts.map((post, i) => (
+          <li key={i}>
+            <strong>{post.authorUsername}</strong>
+            <div>{post.body}</div>
+          </li>
+        ))}
+      </ul>
+      {username ? (
+        <form action="/add-post" method="post">
+          <input type="hidden" name="_csrf" value={csrfToken} />
+          <textarea name="body" />
+          <button type="submit">Add Post</button>
+        </form>
+      ) : null}
+    </React.Fragment>
+  );
 }
