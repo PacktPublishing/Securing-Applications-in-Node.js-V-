@@ -3,6 +3,7 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import * as database from '../database';
 import * as Views from '../views';
+import {isValidPassword} from '../client/PasswordField';
 
 const app = Router();
 
@@ -23,8 +24,8 @@ app.get('/register', async (req, res, next) => {
 
 app.post('/register', async (req, res, next) => {
   try {
-    if (req.body.password !== req.body.passwordConfirmation) {
-      throw new Error('Password missmatch');
+    if (!isValidPassword(req.body.password)) {
+      throw new Error('Invalid password');
     }
     await database.users.create(req.body.username, req.body.password);
     req.session.username = req.body.username;

@@ -33,6 +33,7 @@
   },
   "scripts": {
     "precommit": "lint-staged",
+    "prestart": "webpack",
     "start": "babel-node src/server"
   },
   "lint-staged": {
