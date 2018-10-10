@@ -86,17 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "../node_modules/sane-email-validation/index.js":
-/*!******************************************************!*\
-  !*** ../node_modules/sane-email-validation/index.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("exports = module.exports = isEmail;\nexports.isNotEmail = isNotEmail;\n\nvar localAddr = /^[a-z0-9.!#$%&'*+\\/=?^_`{|}~-]+$/i;\nvar domain = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$/i;\n\nfunction isEmail( str ) {\n\tvar parts = str.split( \"@\" );\n\tif ( parts.length !== 2 ) {\n\t\treturn false;\n\t}\n\n\tif ( !localAddr.test( parts[ 0 ] ) ) {\n\t\treturn false;\n\t}\n\n\tif ( !domain.test( parts[ 1 ] ) ) {\n\t\treturn false;\n\t}\n\n\treturn true;\n}\n\nfunction isNotEmail( str ) {\n\treturn !isEmail( str )\n}\n\n\n//# sourceURL=webpack:///../node_modules/sane-email-validation/index.js?");
-
-/***/ }),
-
 /***/ "./node_modules/final-form/dist/final-form.es.js":
 /*!*******************************************************!*\
   !*** ./node_modules/final-form/dist/final-form.es.js ***!
@@ -228,6 +217,17 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
+/***/ "./node_modules/sane-email-validation/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/sane-email-validation/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("exports = module.exports = isEmail;\nexports.isNotEmail = isNotEmail;\n\nvar localAddr = /^[a-z0-9.!#$%&'*+\\/=?^_`{|}~-]+$/i;\nvar domain = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$/i;\n\nfunction isEmail( str ) {\n\tvar parts = str.split( \"@\" );\n\tif ( parts.length !== 2 ) {\n\t\treturn false;\n\t}\n\n\tif ( !localAddr.test( parts[ 0 ] ) ) {\n\t\treturn false;\n\t}\n\n\tif ( !domain.test( parts[ 1 ] ) ) {\n\t\treturn false;\n\t}\n\n\treturn true;\n}\n\nfunction isNotEmail( str ) {\n\treturn !isEmail( str )\n}\n\n\n//# sourceURL=webpack:///./node_modules/sane-email-validation/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/schedule/cjs/schedule-tracking.development.js":
 /*!********************************************************************!*\
   !*** ./node_modules/schedule/cjs/schedule-tracking.development.js ***!
@@ -284,7 +284,7 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = EmailField;\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nvar _reactFinalForm = __webpack_require__(/*! react-final-form */ \"./node_modules/react-final-form/dist/react-final-form.es.js\");\n\nvar _saneEmailValidation = _interopRequireDefault(__webpack_require__(/*! sane-email-validation */ \"../node_modules/sane-email-validation/index.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }\n\nfunction validateEmail(value) {\n  if (!value) {\n    return 'Please enter your email';\n  }\n\n  if (!(0, _saneEmailValidation.default)(value)) {\n    return 'Please enter a valid email';\n  }\n}\n\nfunction EmailField() {\n  return _react.default.createElement(_reactFinalForm.Field, {\n    name: \"username\",\n    validate: validateEmail\n  }, ({\n    input,\n    meta\n  }) => _react.default.createElement(\"label\", {\n    style: {\n      display: 'flex',\n      alignItems: 'center'\n    }\n  }, _react.default.createElement(\"div\", {\n    style: {\n      marginRight: '1em',\n      width: '5em'\n    }\n  }, \"Email\"), _react.default.createElement(\"input\", _extends({\n    style: {\n      flexGrow: 1,\n      marginRight: '1em'\n    }\n  }, input, {\n    type: \"email\",\n    placeholder: \"name@example.com\"\n  })), meta.error && meta.touched && _react.default.createElement(\"div\", {\n    style: {\n      color: 'red'\n    }\n  }, meta.error)));\n}\n\n//# sourceURL=webpack:///./src/client/EmailField.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = EmailField;\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nvar _reactFinalForm = __webpack_require__(/*! react-final-form */ \"./node_modules/react-final-form/dist/react-final-form.es.js\");\n\nvar _saneEmailValidation = _interopRequireDefault(__webpack_require__(/*! sane-email-validation */ \"./node_modules/sane-email-validation/index.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }\n\nfunction validateEmail(value) {\n  if (!value) {\n    return 'Please enter your email';\n  }\n\n  if (!(0, _saneEmailValidation.default)(value)) {\n    return 'Please enter a valid email';\n  }\n}\n\nfunction EmailField() {\n  return _react.default.createElement(_reactFinalForm.Field, {\n    name: \"username\",\n    validate: validateEmail\n  }, ({\n    input,\n    meta\n  }) => _react.default.createElement(\"label\", {\n    style: {\n      display: 'flex',\n      alignItems: 'center'\n    }\n  }, _react.default.createElement(\"div\", {\n    style: {\n      marginRight: '1em',\n      width: '5em'\n    }\n  }, \"Email\"), _react.default.createElement(\"input\", _extends({\n    style: {\n      flexGrow: 1,\n      marginRight: '1em'\n    }\n  }, input, {\n    type: \"email\",\n    placeholder: \"name@example.com\"\n  })), meta.error && meta.touched && _react.default.createElement(\"div\", {\n    style: {\n      color: 'red'\n    }\n  }, meta.error)));\n}\n\n//# sourceURL=webpack:///./src/client/EmailField.js?");
 
 /***/ }),
 
@@ -308,7 +308,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nvar _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\"));\n\nvar _reactFinalForm = __webpack_require__(/*! react-final-form */ \"./node_modules/react-final-form/dist/react-final-form.es.js\");\n\nvar _EmailField = _interopRequireDefault(__webpack_require__(/*! ./EmailField */ \"./src/client/EmailField.js\"));\n\nvar _PasswordField = _interopRequireDefault(__webpack_require__(/*! ./PasswordField */ \"./src/client/PasswordField.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconst csrfToken = document.querySelector('[data-csrf]').getAttribute('data-csrf');\n\nfunction Login() {\n  return _react.default.createElement(_reactFinalForm.Form, {\n    onSubmit: () => {},\n    render: ({\n      handleSubmit,\n      invalid\n    }) => _react.default.createElement(\"form\", {\n      onSubmit: invalid ? handleSubmit : undefined,\n      action: \"/login\",\n      method: \"post\"\n    }, _react.default.createElement(\"input\", {\n      type: \"hidden\",\n      name: \"_csrf\",\n      value: csrfToken\n    }), _react.default.createElement(_EmailField.default, null), _react.default.createElement(_PasswordField.default, {\n      isRegister: false\n    }), _react.default.createElement(\"button\", {\n      type: \"submit\"\n    }, \"Login\"))\n  });\n}\n\nconst div = document.createElement('div');\ndocument.body.appendChild(div);\n\n_reactDom.default.render(_react.default.createElement(Login, null), div);\n\n//# sourceURL=webpack:///./src/client/login.js?");
+eval("\n\nvar _react = _interopRequireDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nvar _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\"));\n\nvar _reactFinalForm = __webpack_require__(/*! react-final-form */ \"./node_modules/react-final-form/dist/react-final-form.es.js\");\n\nvar _EmailField = _interopRequireDefault(__webpack_require__(/*! ./EmailField */ \"./src/client/EmailField.js\"));\n\nvar _PasswordField = _interopRequireDefault(__webpack_require__(/*! ./PasswordField */ \"./src/client/PasswordField.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconst csrfToken = document.querySelector('[data-csrf]').getAttribute('data-csrf');\n\nfunction Login() {\n  return _react.default.createElement(_reactFinalForm.Form, {\n    onSubmit: () => {},\n    render: ({\n      handleSubmit,\n      invalid\n    }) => _react.default.createElement(\"form\", {\n      onSubmit: invalid ? handleSubmit : undefined,\n      action: \"/login\",\n      method: \"post\"\n    }, _react.default.createElement(\"input\", {\n      type: \"hidden\",\n      name: \"_csrf\",\n      value: csrfToken\n    }), _react.default.createElement(_EmailField.default, null), _react.default.createElement(_PasswordField.default, {\n      isRegister: false\n    }), _react.default.createElement(\"button\", {\n      type: \"submit\"\n    }, \"Login\"), _react.default.createElement(\"a\", {\n      href: \"/register\"\n    }, \"(Sign Up instead)\"))\n  });\n}\n\nconst div = document.createElement('div');\ndocument.body.appendChild(div);\n\n_reactDom.default.render(_react.default.createElement(Login, null), div);\n\n//# sourceURL=webpack:///./src/client/login.js?");
 
 /***/ })
 

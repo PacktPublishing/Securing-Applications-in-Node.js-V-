@@ -15,6 +15,12 @@ const query = loadDatabase({
       body TEXT NOT NULL
     )
   `,
+  RateLimitState: sql`
+    CREATE TABLE RateLimitState (
+      id TEXT NOT NULL PRIMARY KEY,
+      state TEXT NOT NULL
+    )
+  `,
 });
 
 export const users = {
@@ -29,6 +35,15 @@ export const users = {
       sql`
         INSERT INTO Users (username, password)
           VALUES (${username}, ${password})
+      `,
+    );
+  },
+  async updatePassword(username, password) {
+    await query(
+      sql`
+        UPDATE Users
+          SET password = ${password}
+          WHERE username = ${username}
       `,
     );
   },
@@ -48,3 +63,41 @@ export const posts = {
     );
   },
 };
+
+export const rateLimit = prefix => ({
+  async save(id, state) {
+    if (await this.load(id)) {
+      await query(
+        sql`
+          UPDATE RateLimitState
+            SET state = ${JSON.stringify(state)}
+            WHERE id = ${prefix + ':' + id}
+        `,
+      );
+    } else {
+      await query(
+        sql`
+          INSERT INTO RateLimitState (id, state)
+            VALUES (${prefix + ':' + id}, ${JSON.stringify(state)})
+        `,
+      );
+    }
+  },
+  async load(id) {
+    const records = await query(
+      sql`
+        SELECT state FROM RateLimitState
+          WHERE id = ${prefix + ':' + id}
+      `,
+    );
+    return records.length ? JSON.parse(records[0].state) : null;
+  },
+  async remove(id) {
+    await query(
+      sql`
+        DELETE FROM RateLimitState
+          WHERE id = ${prefix + ':' + id}
+      `,
+    );
+  },
+});
