@@ -24,6 +24,7 @@ function Login() {
 
           <button type="submit">Login</button>
           <a href="/register">(Sign Up instead)</a>
+          <a href="/password-reset">Forgotten Password?</a>
         </form>
       )}
     />

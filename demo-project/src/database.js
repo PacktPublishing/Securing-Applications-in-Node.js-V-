@@ -1,4 +1,5 @@
 import sql from '@moped/sql';
+import cuid from 'cuid';
 import loadDatabase from './safe-database';
 
 const query = loadDatabase({
@@ -19,6 +20,12 @@ const query = loadDatabase({
     CREATE TABLE RateLimitState (
       id TEXT NOT NULL PRIMARY KEY,
       state TEXT NOT NULL
+    )
+  `,
+  Tokens: sql`
+    CREATE TABLE Tokens (
+      id TEXT NOT NULL PRIMARY KEY,
+      token TEXT NOT NULL
     )
   `,
 });
@@ -101,3 +108,42 @@ export const rateLimit = prefix => ({
     );
   },
 });
+
+export const tokens = {
+  async save(token) {
+    const id = cuid();
+    await query(
+      sql`
+        INSERT INTO Tokens (id, token)
+          VALUES (${id}, ${JSON.stringify(token)})
+      `,
+    );
+    return id;
+  },
+  async load(tokenID) {
+    const records = await query(
+      sql`
+        SELECT token FROM Tokens
+          WHERE id = ${tokenID}
+      `,
+    );
+    return records.length ? JSON.parse(records[0].token) : null;
+  },
+  async update(tokenID, token) {
+    await query(
+      sql`
+        UPDATE Tokens
+          SET token = ${JSON.stringify(token)}
+          WHERE id = ${tokenID}
+      `,
+    );
+  },
+  async remove(tokenID) {
+    await query(
+      sql`
+        DELETE FROM Tokens
+          WHERE id = ${tokenID}
+      `,
+    );
+  },
+};

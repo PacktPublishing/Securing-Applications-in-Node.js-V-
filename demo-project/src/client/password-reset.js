@@ -32,7 +32,6 @@ function PasswordReset() {
         return await response.json();
       }}
       onPassCodeVerified={async email => {
-        debugger;
         location.replace('/change-password');
       }}
     />

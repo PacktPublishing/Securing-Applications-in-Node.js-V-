@@ -7,6 +7,8 @@ import AddPost from './add-post';
 import Login from './login';
 import Logout from './logout';
 import Register from './register';
+import PasswordReset from './password-reset';
+import ChangePassword from './change-password';
 
 const app = Router();
 
@@ -31,5 +33,7 @@ app.use(AddPost);
 app.use(Login);
 app.use(Logout);
 app.use(Register);
+app.use(PasswordReset);
+app.use(ChangePassword);
 
 export default app;
