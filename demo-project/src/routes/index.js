@@ -7,6 +7,7 @@ import AddPost from './add-post';
 import Logout from './logout';
 import PasswordReset from './password-reset';
 import TwoFactorAuth from './2-factor-auth';
+import Facebook from './facebook';
 
 const app = Router();
 
@@ -35,5 +36,6 @@ app.use(AddPost);
 app.use(Logout);
 app.use(PasswordReset);
 app.use(TwoFactorAuth);
+app.use(Facebook);
 
 export default app;
