@@ -16,7 +16,7 @@ function PasswordReset() {
             'Content-Type': 'application/json',
           },
           method: 'POST',
-          body: JSON.stringify({email, redirectURL: '/change-password'}),
+          body: JSON.stringify({email, redirectURL: '/'}),
         });
         return await response.json();
       }}
@@ -32,7 +32,7 @@ function PasswordReset() {
         return await response.json();
       }}
       onPassCodeVerified={async email => {
-        location.replace('/change-password');
+        location.replace('/');
       }}
     />
   );

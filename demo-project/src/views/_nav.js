@@ -13,8 +13,7 @@ export default function Nav({username, csrfToken}) {
           </form>
         ) : (
           <div>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <a href="/login">Login / Register</a>
           </div>
         )}
       </nav>

@@ -22,7 +22,7 @@ const passwordlessAuthentication = new PasswordlessAuthentication({
 // https://www.atauthentication.com/docs/send-message.html
 const mailTransport = getTransport();
 
-app.get('/password-reset', async (req, res, next) => {
+app.get('/login', async (req, res, next) => {
   try {
     res.send(
       renderToString(<Views.PasswordReset csrfToken={req.csrfToken()} />),
