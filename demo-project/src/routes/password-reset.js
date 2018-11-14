@@ -92,7 +92,12 @@ app.post('/auth/passwordless/verify-pass-code', async (req, res, next) => {
     });
     if (result.verified) {
       const {userID} = result;
-      req.session.username = userID;
+      const user = await database.users.get(userID);
+      if (user && user.twoFactorSecret) {
+        req.session.verifiedEmail = userID;
+      } else {
+        req.session.username = userID;
+      }
     }
     res.json(result.status);
   } catch (ex) {
@@ -107,8 +112,14 @@ app.get(passwordlessAuthentication.callbackPath, async (req, res, next) => {
     const result = await passwordlessAuthentication.verifyPassCode(req, res);
     if (result.verified) {
       const {userID, state} = result;
-      req.session.username = userID;
-      res.redirect(state);
+      const user = await database.users.get(userID);
+      if (user && user.twoFactorSecret) {
+        req.session.verifiedEmail = userID;
+        res.redirect('/2-factor-auth/verify');
+      } else {
+        req.session.username = userID;
+        res.redirect(state);
+      }
     } else {
       const {status} = result;
       res

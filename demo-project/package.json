@@ -5,6 +5,7 @@
   "dependencies": {
     "@authentication/cookie-session": "^0.0.2",
     "@authentication/csrf-protection": "^0.0.2",
+    "@authentication/google-authenticator": "^1.0.0",
     "@authentication/passwordless": "^1.1.1",
     "@authentication/rate-limit": "^0.0.6",
     "@authentication/react-passwordless": "^1.1.1",

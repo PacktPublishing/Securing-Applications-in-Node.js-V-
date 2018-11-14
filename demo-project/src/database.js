@@ -6,7 +6,7 @@ const query = loadDatabase({
   Users: sql`
     CREATE TABLE Users (
       username TEXT NOT NULL PRIMARY KEY,
-      password TEXT NOT NULL
+      twoFactorSecret TEXT NULL
     )
   `,
   Posts: sql`
@@ -37,22 +37,31 @@ export const users = {
     );
     return results[0];
   },
-  async create(username, password) {
+  async create(username) {
     await query(
       sql`
-        INSERT INTO Users (username, password)
-          VALUES (${username}, ${password})
+        INSERT INTO Users (username)
+          VALUES (${username})
       `,
     );
   },
-  async updatePassword(username, password) {
-    await query(
-      sql`
-        UPDATE Users
-          SET password = ${password}
-          WHERE username = ${username}
-      `,
-    );
+  async updateTwoFactorSecret(username, twoFactorSecret) {
+    if (await users.get(username)) {
+      await query(
+        sql`
+          UPDATE Users
+            SET twoFactorSecret = ${twoFactorSecret}
+            WHERE username = ${username}
+        `,
+      );
+    } else {
+      await query(
+        sql`
+          INSERT INTO Users (username, twoFactorSecret)
+            VALUES (${username}, ${twoFactorSecret})
+        `,
+      );
+    }
   },
 };
 
