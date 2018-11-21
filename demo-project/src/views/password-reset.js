@@ -9,6 +9,10 @@ export default function PasswordReset({csrfToken}) {
         <input type="hidden" name="_csrf" value={csrfToken} />
         <button type="submit">Login With Facebook</button>
       </form>
+      <form action="/auth/google" method="post">
+        <input type="hidden" name="_csrf" value={csrfToken} />
+        <button type="submit">Login With Google</button>
+      </form>
       <script src="static/js/password-reset.js" data-csrf={csrfToken} />
     </React.Fragment>
   );

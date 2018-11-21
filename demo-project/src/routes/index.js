@@ -8,6 +8,7 @@ import Logout from './logout';
 import PasswordReset from './password-reset';
 import TwoFactorAuth from './2-factor-auth';
 import Facebook from './facebook';
+import Google from './google';
 
 const app = Router();
 
@@ -37,5 +38,6 @@ app.use(Logout);
 app.use(PasswordReset);
 app.use(TwoFactorAuth);
 app.use(Facebook);
+app.use(Google);
 
 export default app;

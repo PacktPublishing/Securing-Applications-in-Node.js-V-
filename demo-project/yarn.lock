@@ -67,6 +67,15 @@
     speakeasy "^2.0.0"
     svg-to-dataurl "^1.0.0"
 
+"@authentication/google@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@authentication/google/-/google-0.1.1.tgz#a29c14a57fbca8b8475a8c6386307114b0fe3c77"
+  integrity sha512-gU7sk0EgNAUIcJGngZDyiIASaSI/NG/G5vRxxAdFY6Q4oWn/5NNGf3MCMrc4bS5r3IDp/wD4YFc4xgvGYevnFA==
+  dependencies:
+    "@authentication/base-error" "^0.0.4"
+    "@authentication/oauth2" "^0.1.1"
+    "@authentication/types" "^0.0.6"
+
 "@authentication/is-email@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@authentication/is-email/-/is-email-0.0.2.tgz#437885f75a60bd489afa8f12549f02e00d7eab4b"
